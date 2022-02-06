@@ -1,5 +1,4 @@
 # Instabug take-home task
-
 ### Description
 You recently joined a firm that uses an internal system to track the performance of its sales team. They currently have an old dashboard built in Angularjs, but they want to add some missing and new features, so they started migrating to Vuejs and used ngVue as a bridge between the two.
 There are two pages in the application.
