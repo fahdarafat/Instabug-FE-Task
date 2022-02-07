@@ -15,10 +15,13 @@ const store = new Vuex.Store({
     },
   },
   actions: {
-    chartDataRequest({ commit }) {
-      axios.get('https://fe-task.getsandbox.com/performance').then((res) => {
-        commit('SET_CHARTDATA', res.data);
-      });
+    chartDataRequest({ commit, state }) {
+      if (state.chartData.length === 0) { //  Fetch data only once.
+        console.log('running');
+        axios.get('https://fe-task.getsandbox.com/performance').then((res) => {
+          commit('SET_CHARTDATA', res.data);
+        });
+      }
     },
   },
 });
