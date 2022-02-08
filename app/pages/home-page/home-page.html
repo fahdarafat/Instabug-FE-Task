@@ -6,8 +6,10 @@
   <employees-list employees-list="homePageVm.employees"></employees-list>
 
   <div class="c-dashboard__footer">
-    <button class="c-button">
-      Load More
+    <button class="c-button" ng-click="homePageVm.loadMore()" ng-disabled="homePageVm.loading"
+      ng-hide="homePageVm.disabled">
+      <span ng-if="!homePageVm.loading">Load More</span>
+      <span ng-if="homePageVm.loading">Loading...</span>
     </button>
   </div>
 </div>
