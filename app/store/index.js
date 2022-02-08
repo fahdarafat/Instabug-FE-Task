@@ -7,21 +7,32 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     chartData: [],
+    dateRange: [],
   },
-  getters: {},
+  getters: {
+    dateRange: state => {
+      return state.dateRange;
+    },
+  },
   mutations: {
-    SET_CHARTDATA(state, data) {
-      state.chartData = data;
+    SET_CHARTDATA(state, value) {
+      state.chartData = value;
+    },
+    SET_DATERANGE(state, value) {
+      state.dateRange = value;
     },
   },
   actions: {
     chartDataRequest({ commit, state }) {
       if (state.chartData.length === 0) { //  Fetch data only once.
-        console.log('running');
         axios.get('https://fe-task.getsandbox.com/performance').then((res) => {
           commit('SET_CHARTDATA', res.data);
+          console.log(res.data);
         });
       }
+    },
+    dateRangeSelected({ commit }, value) {
+      commit('SET_DATERANGE', value);
     },
   },
 });

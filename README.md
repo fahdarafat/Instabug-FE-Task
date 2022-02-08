@@ -33,16 +33,16 @@ You should commit the code to a repository and complete the following steps in s
 
 #### Req #1: Chart Edits (VueJS):
   - A chart built with the [echarts](https://echarts.apache.org/en/index.html) library can be found on the page `/team-performance`.
-  1. The graph currently displays static data; fetch new data from endpoint 'https://fe-task.getsandbox.com/performance', retrieve the data from the endpoint using Vuex and Axios to retrieve the data from the endpoint and replace it with the static data already set.
-  2. To select a specific range on the chart, create a date range filter and filter the chart locally.
+  1. The graph currently displays static data; fetch new data from endpoint 'https://fe-task.getsandbox.com/performance', retrieve the data from the endpoint using Vuex and Axios to retrieve the data from the endpoint and replace it with the static data already set. [DONE]
+  2. To select a specific range on the chart, create a date range filter and filter the chart locally. [Get Back to this]
   - You can use [this component](https://element.eleme.io/#/en-US/component/date-picker#date-range) or any other date range component you choose, or you can make a simple two-text box with date validation and manually enter the date.
   3. For the filter component, write unit tests (jest is already included in dependencies)
   4. To implement the following, check the library documentation:
-  a. The chart line should be styled to reflect the design below, and the graph line should indicate the performance ranges.
+  a. The chart line should be styled to reflect the design below, and the graph line should indicate the performance ranges. [Done]
     - Red: For a score of less than 50%
     - Yellow: for a score of 50% to 80%
     - Green: For a score of more than 80%
-  b. Match the tooltip to the design; it should provide the point's date as well as the relative performance index colour and value.
+  b. Match the tooltip to the design; it should provide the point's date as well as the relative performance index colour and value. [Done]
   ![performance-index-chart](chart.png)
 
 #### Req #2: Load more button (Angularjs)

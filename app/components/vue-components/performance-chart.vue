@@ -1,6 +1,7 @@
 <template>
   <div class="c-chart__container">
     <v-chart ref="chart" :option="chartOptions" />
+    {{ xAxisData }}
   </div>
 </template>
 
@@ -40,7 +41,6 @@ export default {
       tooltipIconColor: "#17990E",
     };
   },
-
   computed: {
     initOptions() {
       return {
@@ -138,22 +138,33 @@ export default {
         },
       };
     },
-
     xAxisData() {
-      return store.state.chartData.map((item) => this.formatDate(item.date_ms));
+      return store.state.chartData
+        .filter(this.filterxAxis)
+        .map((item) => this.formatDate(item.date_ms));
     },
-
     yAxisData() {
       return store.state.chartData.map((item) => +item.performance * 100);
     },
+    dateRange() {
+      return store.getters.dateRange || null;
+    },
   },
-
   methods: {
     formatDate(dateInMs) {
       return moment(dateInMs).format("DD MMM YYYY");
     },
-    log(e) {
-      console.log(e);
+    filterxAxis(item) {
+      if (this.dateRange) {
+        if (
+          item.date_ms >= this.dateRange[0] &&
+          item.date_ms <= this.dateRange[1]
+        ) {
+          return true;
+        }
+      } else {
+        return true;
+      }
     },
   },
   created() {
@@ -166,11 +177,13 @@ export default {
       if (0 < currentData && currentData < 50) {
         this.tooltipIconColor = "#FF0000";
       } else if (currentData >= 50 && currentData <= 80) {
-        console.log("yellow");
         this.tooltipIconColor = "#E8F229";
       } else {
         this.tooltipIconColor = "#17990E";
       }
+    });
+    this.$nextTick(() => {
+      console.log(this.xAxisData);
     });
   },
 };
