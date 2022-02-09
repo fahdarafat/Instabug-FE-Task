@@ -47,9 +47,9 @@ You should commit the code to a repository and complete the following steps in s
   ![performance-index-chart](chart.png)
 
 #### Req #2: Load more button (Angularjs)
-  - Implement the logic of the load more button.
-  - While loading data, add a loader indicator to the button and disable it to prevent multiple clicks.
-  - When there are no more pages to load, hide the button.
+  - Implement the logic of the load more button. [Done]
+  - While loading data, add a loader indicator to the button and disable it to prevent multiple clicks. [Done]
+  - When there are no more pages to load, hide the button. [Done]
   - The 'total pages' count can be seen in the request of employees.
 
 #### Req #3: Use Vuejs to create a component called Filters, it should contains the following (Angularjs, Vuejs):
