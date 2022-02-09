@@ -7,7 +7,6 @@
       start-placeholder="Start date"
       end-placeholder="End date"
       format="dd/MMM/yyyy"
-      value-format="timestamp"
     >
     </el-date-picker>
   </div>

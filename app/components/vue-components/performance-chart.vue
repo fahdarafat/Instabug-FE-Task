@@ -2,6 +2,7 @@
   <div class="c-chart__container">
     <v-chart ref="chart" :option="chartOptions" />
     {{ xAxisData }}
+    {{ yAxisData }}
   </div>
 </template>
 
@@ -122,7 +123,7 @@ export default {
             {
               gt: 0,
               lt: 50,
-              color: "#FF0000",
+              color: "#EC5A43",
             },
             {
               gte: 50,
@@ -175,7 +176,7 @@ export default {
     this.$refs.chart.chart.on("showtip", (params) => {
       const currentData = this.yAxisData[params.dataIndex];
       if (0 < currentData && currentData < 50) {
-        this.tooltipIconColor = "#FF0000";
+        this.tooltipIconColor = "#EC5A43";
       } else if (currentData >= 50 && currentData <= 80) {
         this.tooltipIconColor = "#E8F229";
       } else {
