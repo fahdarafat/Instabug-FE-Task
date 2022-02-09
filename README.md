@@ -67,7 +67,7 @@ You should commit the code to a repository and complete the following steps in s
   - Refer to below screenshot to style the home page employees table. [Done]
   ![table-design](table-design.png)
 
-#### (BOUNS #1) Install cypress and automate one of the following scenarios:
+#### (BOUNS #1) Install cypress and automate one of the following scenarios: [Done]
   - First Scenario
     - open home page
     - mock the employees request
