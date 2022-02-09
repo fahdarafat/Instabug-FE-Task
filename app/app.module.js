@@ -4,6 +4,7 @@ import 'ngVue/build/plugins.js';
 import 'angular-sanitize';
 import PerformancePageComponent from './pages/performance-page.vue';
 import PerformanceChartComponent from './components/vue-components/performance-chart.vue';
+import NotFoundPageComponent from './pages/not-found-page.vue';
 import Filters from './components/vue-components/filters.vue';
 
 angular.module('appModule', [
@@ -23,4 +24,8 @@ angular.module('appModule').directive('vPerformanceChart', (createVueComponent) 
 
 angular.module('appModule').directive('vFilters', (createVueComponent) => {
   return createVueComponent(Vue.component('filters', Filters));
+});
+
+angular.module('appModule').directive('vNotFoundPage', (createVueComponent) => {
+  return createVueComponent(Vue.component('notFoundPageComponent', NotFoundPageComponent));
 });
