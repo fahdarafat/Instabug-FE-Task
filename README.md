@@ -64,7 +64,7 @@ You should commit the code to a repository and complete the following steps in s
   - To handle unknown routes, use ui-route, which should redirect to the not found page you just created.
 
 #### Req #5: Style the Employees table
-  - Refer to below screenshot to style the home page employees table.
+  - Refer to below screenshot to style the home page employees table. [Done]
   ![table-design](table-design.png)
 
 #### (BOUNS #1) Install cypress and automate one of the following scenarios:
