@@ -1,5 +1,15 @@
 angular
   .module('appModule')
+  .filter('highlight', function ($sce) {
+    return function (input, searchText) {
+      if (!searchText) {
+        return input;
+      }
+      const re = new RegExp(searchText, 'g');
+      const text = re.test(input) ? input.replace(re, `<span class="c-users-list__highlight">${searchText}</span>`) : input;
+      return $sce.trustAsHtml(text);
+    };
+  })
   .controller('homeController', homePageController);
 
 function homePageController(Employees) {
@@ -9,6 +19,7 @@ function homePageController(Employees) {
   homePageVm.employees = [];
   homePageVm.loading = false;
   homePageVm.disabled = false;
+  homePageVm.searchText = '';
 
   activate();
 
@@ -16,7 +27,6 @@ function homePageController(Employees) {
     Employees.getEmployees()
       .then(({ data }) => {
         homePageVm.employees = homePageVm.employees.concat(data.employees);
-        console.log(data);
       });
   }
   homePageVm.loadMore = () => {
@@ -31,5 +41,11 @@ function homePageController(Employees) {
     } else {
       homePageVm.disabled = true;
     }
+  };
+  homePageVm.log = (searchText) => {
+    homePageVm.searchText = searchText;
+  };
+  homePageVm.clearText = () => {
+    homePageVm.searchText = '';
   };
 }
