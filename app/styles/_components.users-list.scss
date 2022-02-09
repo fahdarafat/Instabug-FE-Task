@@ -8,12 +8,14 @@
     display: table-row;
     font-size: 16px;
     font-weight: 500;
+    white-space: nowrap;
     background-color: #2b0242;
 
     > div {
       display: table-cell;
       text-align: center;
       vertical-align: middle;
+      padding: 15px 5px;
       font-size: 14px;
       color: white;
     }
@@ -42,6 +44,10 @@
 
   .c-users-list__performance-index {
     text-align: center;
+  }
+
+  .c-users-list__date {
+    white-space: nowrap;
   }
 
   .c-users-list__main-info {
