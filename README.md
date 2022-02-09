@@ -60,8 +60,8 @@ You should commit the code to a repository and complete the following steps in s
   - Add a reset button to the filter inputs to clear them. [Done]
 
 #### Req #4: 404 Page in using ui-router (Angularjs)
-  - Create a not-found page with vuejs, as shown on the 'about' page.
-  - To handle unknown routes, use ui-route, which should redirect to the not found page you just created.
+  - Create a not-found page with vuejs, as shown on the 'about' page. [Done]
+  - To handle unknown routes, use ui-route, which should redirect to the not found page you just created. [Done]
 
 #### Req #5: Style the Employees table
   - Refer to below screenshot to style the home page employees table.
