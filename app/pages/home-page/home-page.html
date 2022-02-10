@@ -1,13 +1,15 @@
 <div class="c-dashboard">
   <div class="c-filters__container">
-    [Place search component here]
+    <v-filters v-on:filter-text="homePageVm.log" v-on:clear-text="homePageVm.clearText"> </v-filters>
   </div>
 
-  <employees-list employees-list="homePageVm.employees"></employees-list>
+  <employees-list employees-list="homePageVm.employees" text-to-highlight="homePageVm.searchText"></employees-list>
 
   <div class="c-dashboard__footer">
-    <button class="c-button">
-      Load More
+    <button class="c-button" ng-click="homePageVm.loadMore()" ng-disabled="homePageVm.loading"
+      ng-hide="homePageVm.disabled">
+      <span ng-if="!homePageVm.loading">Load More</span>
+      <span ng-if="homePageVm.loading">Loading...</span>
     </button>
   </div>
 </div>

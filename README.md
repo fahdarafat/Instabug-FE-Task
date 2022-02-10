@@ -46,27 +46,27 @@ You should commit the code to a repository and complete the following steps in s
   ![performance-index-chart](chart.png)
 
 #### Req #2: Load more button (Angularjs)
-  - Implement the logic of the load more button.
-  - While loading data, add a loader indicator to the button and disable it to prevent multiple clicks.
-  - When there are no more pages to load, hide the button.
+  - Implement the logic of the load more button. [Done]
+  - While loading data, add a loader indicator to the button and disable it to prevent multiple clicks. [Done]
+  - When there are no more pages to load, hide the button. [Done]
   - The 'total pages' count can be seen in the request of employees.
 
 #### Req #3: Use Vuejs to create a component called Filters, it should contains the following (Angularjs, Vuejs):
-  1. Search text input should highlight the matching text in the loaded table columns "Employee" and "About" when any input is entered into it - construct an [angularjs custom filter](https://docs.angularjs.org/tutorial/step_11) and use it to highlight the text inside table columns.
-  2. Integrate the built vue search component into the Angularjs 'home-page' using ngVue (you can refer to about page as it has same logic)
+  1. Search text input should highlight the matching text in the loaded table columns "Employee" and "About" when any input is entered into it - construct an [angularjs custom filter](https://docs.angularjs.org/tutorial/step_11) and use it to highlight the text inside table columns. [Done]
+  2. Integrate the built vue search component into the Angularjs 'home-page' using ngVue (you can refer to about page as it has same logic) [Done]
   3. When we modify the filter inputs, we should see the changes reflected in the page url, so we can utilise the url to get the same filtering results every time.
-  - When loading more pages, the results should be highlighted.
-  - Add a reset button to the filter inputs to clear them.
+  - When loading more pages, the results should be highlighted. [Done]
+  - Add a reset button to the filter inputs to clear them. [Done]
 
 #### Req #4: 404 Page in using ui-router (Angularjs)
-  - Create a not-found page with vuejs, as shown on the 'about' page.
-  - To handle unknown routes, use ui-route, which should redirect to the not found page you just created.
+  - Create a not-found page with vuejs, as shown on the 'about' page. [Done]
+  - To handle unknown routes, use ui-route, which should redirect to the not found page you just created. [Done]
 
 #### Req #5: Style the Employees table
-  - Refer to below screenshot to style the home page employees table.
+  - Refer to below screenshot to style the home page employees table. [Done]
   ![table-design](table-design.png)
 
-#### (BOUNS #1) Install cypress and automate one of the following scenarios:
+#### (BOUNS #1) Install cypress and automate one of the following scenarios: [Done]
   - First Scenario
     - open home page
     - mock the employees request
