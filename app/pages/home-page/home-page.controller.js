@@ -30,13 +30,13 @@ function homePageController(Employees) {
       });
   }
   homePageVm.loadMore = () => {
-    if (homePageVm.currentPage < homePageVm.pages) {
+    if (homePageVm.currentPage < (homePageVm.pages + 1)) {
       homePageVm.loading = true;
       Employees.loadMoreEmployees(homePageVm.currentPage).then(({ data }) => {
         homePageVm.employees = homePageVm.employees.concat(data.employees);
         homePageVm.pages = data.pages;
         homePageVm.currentPage++;
-        if (homePageVm.currentPage === homePageVm.pages) {
+        if (homePageVm.currentPage === (homePageVm.pages + 1)) {
           homePageVm.disabled = true;
         }
         homePageVm.loading = false;
