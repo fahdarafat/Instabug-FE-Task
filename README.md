@@ -1,42 +1,14 @@
 # Instabug take-home task
-### Description
-You recently joined a firm that uses an internal system to track the performance of its sales team. They currently have an old dashboard built in Angularjs, but they want to add some missing and new features, so they started migrating to Vuejs and used ngVue as a bridge between the two.
-There are two pages in the application.
-- On the home page, there is a table that names all members of the sales team.
-- the performance-chart page, which provides a simple chart showing the team's performance during the previous week.
 
-below are the steps to install the dashboard and a the list of requirements.
-
-### Installation
-- copy the content of compressed file, then navigate to the output folder.
-- run `yarn install`
-- run `yarn start`
-
-### Employee list request
-endpoint: https://fe-task.getsandbox.com/employees
-method: GET
-params:
-  - `?page` [int]: number of current page, if not passed will return the first page
-  - `?isPartTime` [bool]: return only part time employees, if not passed, will return all employees
-
-response:
-```
-{
-    pages: TOTAL_PAGES_COUNT,
-    current_page: CURRENT_PAGE_NUMBER,
-    employees: LIST_OF_EMPLOYEES
-}
-```
-
-### Requirements
-You should commit the code to a repository and complete the following steps in separate PRs.
-
+## Commands
+  - `yarn start` To start dev server.
+  - `yarn build` To create bundle to .dist.
 #### Req #1: Chart Edits (VueJS):
   - A chart built with the [echarts](https://echarts.apache.org/en/index.html) library can be found on the page `/team-performance`.
   1. The graph currently displays static data; fetch new data from endpoint 'https://fe-task.getsandbox.com/performance', retrieve the data from the endpoint using Vuex and Axios to retrieve the data from the endpoint and replace it with the static data already set. [DONE]
   2. To select a specific range on the chart, create a date range filter and filter the chart locally. [Done]
   - You can use [this component](https://element.eleme.io/#/en-US/component/date-picker#date-range) or any other date range component you choose, or you can make a simple two-text box with date validation and manually enter the date.
-  3. For the filter component, write unit tests (jest is already included in dependencies)
+  3. For the filter component, write unit tests (jest is already included in dependencies) [Attempted to finish code is available in feat/jest-unit-test]
   4. To implement the following, check the library documentation:
   a. The chart line should be styled to reflect the design below, and the graph line should indicate the performance ranges. [Done]
     - Red: For a score of less than 50%
