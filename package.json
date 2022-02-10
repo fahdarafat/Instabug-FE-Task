@@ -3,8 +3,8 @@
     "@uirouter/angularjs": "^1.0.30",
     "@vue/composition-api": "^1.4.4",
     "angular": "^1.8.2",
-    "axios": "^0.25.0",
     "angular-sanitize": "1.8.2",
+    "axios": "^0.25.0",
     "echarts": "^5.2.2",
     "element-ui": "^2.15.6",
     "moment": "^2.29.1",
@@ -15,8 +15,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "@babel/preset-env": "^7.8.7",
+    "@vue/server-test-utils": "1",
+    "@vue/test-utils": "1",
     "angularjs-template-loader": "^0.1.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
     "cypress": "^9.4.1",
@@ -32,8 +37,10 @@
     "htmlhint-loader": "^1.3.1",
     "imports-loader": "^0.8.0",
     "jest": "^27.4.7",
+    "jsdom-global": "^3.0.2",
     "node-sass": "^7.0.1",
     "sass-loader": "^12.4.0",
+    "vue-jest": "^3.0.7",
     "vue-loader": "^15.9.8",
     "vue-style-loader": "^4.1.3",
     "vue-template-compiler": "^2.6.14",
@@ -41,8 +48,29 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.7.3"
   },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "testPathIgnorePatterns": [
+      "cypress/"
+    ],
+    "testEnvironment": "jsdom"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
   "scripts": {
     "start": "webpack-dev-server --open --progress",
-    "build": "webpack"
+    "build": "webpack",
+    "test": "./node_modules/.bin/jest"
   }
 }
