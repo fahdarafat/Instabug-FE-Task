@@ -1,8 +1,6 @@
 <template>
   <div class="c-chart__container">
     <v-chart ref="chart" :option="chartOptions" />
-    {{ xAxisData }}
-    {{ yAxisData }}
   </div>
 </template>
 
@@ -141,25 +139,32 @@ export default {
     },
     xAxisData() {
       return store.state.chartData
-        .filter(this.filterxAxis)
+        .filter(this.filterData)
         .map((item) => this.formatDate(item.date_ms));
     },
     yAxisData() {
-      return store.state.chartData.map((item) => +item.performance * 100);
+      return store.state.chartData
+        .filter(this.filterData)
+        .map((item) => +item.performance * 100);
     },
     dateRange() {
-      return store.getters.dateRange || null;
+      return store.getters.dateRange || [];
     },
   },
   methods: {
     formatDate(dateInMs) {
       return moment(dateInMs).format("DD MMM YYYY");
     },
-    filterxAxis(item) {
-      if (this.dateRange) {
+    filterData(item) {
+      if (this.dateRange.length > 0) {
+        //  Filter out all data that is out of range
         if (
-          item.date_ms >= this.dateRange[0] &&
-          item.date_ms <= this.dateRange[1]
+          moment(this.formatDate(item.date_ms)).isSameOrAfter(
+            moment(this.dateRange[0])
+          ) &&
+          moment(this.formatDate(item.date_ms)).isSameOrBefore(
+            moment(this.dateRange[1])
+          )
         ) {
           return true;
         }
@@ -182,9 +187,6 @@ export default {
       } else {
         this.tooltipIconColor = "#17990E";
       }
-    });
-    this.$nextTick(() => {
-      console.log(this.xAxisData);
     });
   },
 };
