@@ -27,7 +27,6 @@ const store = new Vuex.Store({
       if (state.chartData.length === 0) { //  Fetch data only once.
         axios.get('https://fe-task.getsandbox.com/performance').then((res) => {
           commit('SET_CHARTDATA', res.data);
-          console.log(res.data);
         });
       }
     },

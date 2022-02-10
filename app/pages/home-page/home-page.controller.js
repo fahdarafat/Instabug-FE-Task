@@ -14,7 +14,7 @@ angular
 
 function homePageController(Employees) {
   const homePageVm = this;
-  homePageVm.currentPage = 1;
+  homePageVm.currentPage = 0;
   homePageVm.pages = 1;
   homePageVm.employees = [];
   homePageVm.loading = false;
@@ -30,16 +30,17 @@ function homePageController(Employees) {
       });
   }
   homePageVm.loadMore = () => {
-    if (homePageVm.currentPage <= homePageVm.pages) {
+    if (homePageVm.currentPage < homePageVm.pages) {
       homePageVm.loading = true;
       Employees.loadMoreEmployees(homePageVm.currentPage).then(({ data }) => {
         homePageVm.employees = homePageVm.employees.concat(data.employees);
         homePageVm.pages = data.pages;
         homePageVm.currentPage++;
+        if (homePageVm.currentPage === homePageVm.pages) {
+          homePageVm.disabled = true;
+        }
         homePageVm.loading = false;
       });
-    } else {
-      homePageVm.disabled = true;
     }
   };
   homePageVm.log = (searchText) => {
