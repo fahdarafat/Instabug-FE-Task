@@ -79,7 +79,7 @@ You should commit the code to a repository and complete the following steps in s
     - assert on request is sent with correct params
     - assert on data appended to table correctly
 
-#### (BOUNS #2) Create `build` command to generate dist folder.
+#### (BOUNS #2) Create `build` command to generate dist folder. [Done]
 
 ### Preferred:
 - Use git and the commit messages that make sense

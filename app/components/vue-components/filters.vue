@@ -6,7 +6,7 @@
       @keyup="search"
       placeholder="Search"
     />
-    <button class="c-button" @click="clearText">Clear</button>
+    <button class="c-button-clear" @click="clearText">Clear</button>
   </div>
 </template>
 
